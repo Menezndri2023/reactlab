@@ -27,19 +27,29 @@ function App() {
 
   const getIsFormValid = () => {
     // Implement this function
+    return (
+      firstName &&
+      lastName &&
+      validateEmail(email) &&
+      password.value.length >= 8 &&
+      role !== "role"
+    );
+ };
 
-
-      return true;
-
-  };
-
-  const clearForm = (e) => {
+  const clearForm = () => {
     // Implement this function
-    e.preventDefault();
+    // e.preventDefault();
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword({value:"",isTouched:false});
+    setRole("role")
+
 
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault()
 
     alert("Account created!");
     clearForm();
